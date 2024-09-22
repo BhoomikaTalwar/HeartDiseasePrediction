@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            background-color: #77c1ef;
+            background-image: linear-gradient(0deg, #77c1ef 0%, #d8f1ec 100%);
+            background-attachment: fixed;  
+            background-size: cover;
+        }
+        img {
+            width: 640px;
+            height: 250px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ebf0ff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 96.5%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background-color: #40cc59;
+            width:40%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #result {
+            text-align: center;
+            font-family:serif;
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <img src="{{url_for('static',filename='heartimage.jpg')}}">
+        <h1 style="text-align:center;font-family:serif;">Heart Disease Prediction</h1>
+        
+        <form id="prediction-form">
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+
+            <label for="sex">Sex (0 = Female, 1 = Male):</label>
+            <input type="number" id="sex" required>
+
+            <label for="cp">Chest Pain Type:</label>
+            <input type="number" id="cp" required>
+
+            <label for="trestbps">Resting Blood Pressure:</label>
+            <input type="number" id="trestbps" required>
+
+            <label for="chol">Cholesterol:</label>
+            <input type="number" id="chol" required>
+
+            <label for="fbs">Fasting Blood Sugar:</label>
+            <input type="number" id="fbs" required>
+
+            <label for="restecg">Rest ECG Results:</label>
+            <input type="number" id="restecg" required>
+
+            <label for="thalach">Maximum Heart Rate:</label>
+            <input type="number" id="thalach" required>
+
+            <label for="exang">Exercise Induced Angina:</label>
+            <input type="number" id="exang" required>
+
+            <label for="oldpeak">ST Depression:</label>
+            <input type="number" id="oldpeak" required>
+
+            <label for="slope">Slope of Peak Exercise:</label>
+            <input type="number" id="slope" required>
+
+            <label for="ca">Number of Major Vessels:</label>
+            <input type="number" id="ca" required>
+
+            <label for="thal">Thalassemia:</label>
+            <input type="number" id="thal" required>
+
+            <button type="button" onclick="submitForm()">Predict</button>
+        </form>
+
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        function submitForm() {
+            const formData = {
+                
+                age: document.getElementById('age').value,
+                sex: document.getElementById('sex').value,
+                cp: document.getElementById('cp').value,
+                trestbps: document.getElementById('trestbps').value,
+                chol: document.getElementById('chol').value,
+                fbs: document.getElementById('fbs').value,
+                restecg: document.getElementById('restecg').value,
+                thalach: document.getElementById('thalach').value,
+                exang: document.getElementById('exang').value,
+                oldpeak: document.getElementById('oldpeak').value,
+                slope: document.getElementById('slope').value,
+                ca: document.getElementById('ca').value,
+                thal: document.getElementById('thal').value
+            };
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const result = data.prediction === 1 ? 'Heart Disease Detected' : 'No Heart Disease';
+                document.getElementById('result').innerText = result;
+            });
+        }
+    </script>
+
+</body>
+</html>
