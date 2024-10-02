@@ -15,13 +15,10 @@ Technologies Used:
 ->Model Serialization: pickle
 ->Dataset: The model is trained on a heart disease dataset with features like age, cholesterol, blood pressure, and more.
 
-Project Structure
-php
-Copy code
-├── app.py                # Flask backend with routes for the web page and prediction API
-├── heartdisease.py       # Python script for data analysis and model training
-├── model.pkl             # Pickle file storing the trained logistic regression model
-├── static/               # Static files like images and stylesheets
-├── templates/
-│   └── index.html        # Main HTML page for the web app
-└── data.csv              # Heart disease dataset used for training the model
+How It Works:
+
+1. The user inputs their health information in the form.
+2. The data is sent to the Flask backend via a POST request.
+3. The backend loads the pre-trained logistic regression model and processes the input data.
+4. The model returns a prediction (either "Heart Disease Detected" or "No Heart Disease").
+5. The result is displayed to the user in real-time on the web page.
