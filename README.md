@@ -2,18 +2,17 @@ This project is a web application designed to predict the likelihood of heart di
 
 Features:
 
-->Interactive Form: Users can input their medical data, such as age, cholesterol levels, chest pain type, and more, through a user-friendly form.
-->Real-time Predictions: Upon submitting the form, the app sends the data to the backend, where the machine learning model processes the input and provides a prediction.
-->Responsive Design: The frontend is built with a clean and responsive design, ensuring usability across various devices.
-->ML Model: A logistic regression model is trained to predict the likelihood of heart disease based on the input data.
+1. Interactive Form: Users can input their medical data, such as age, cholesterol levels, chest pain type, and more, through a user-friendly form.
+2. Real-time Predictions: Upon submitting the form, the app sends the data to the backend, where the machine learning model processes the input and provides a prediction.
+3. Responsive Design: The frontend is built with a clean and responsive design, ensuring usability across various devices.
+4. ML Model: A logistic regression model is trained to predict the likelihood of heart disease based on the input data.
 
 Technologies Used:
-
-->Frontend: HTML, CSS, JavaScript
-->Backend: Flask (Python)
-->Machine Learning: Logistic Regression (scikit-learn)
-->Model Serialization: pickle
-->Dataset: The model is trained on a heart disease dataset with features like age, cholesterol, blood pressure, and more.
+1. Frontend: HTML, CSS, JavaScript
+2. Backend: Flask (Python)
+3. Machine Learning: Logistic Regression (scikit-learn)
+4. Model Serialization: pickle
+5. Dataset: The model is trained on a heart disease dataset with features like age, cholesterol, blood pressure, and more.
 
 How It Works:
 
