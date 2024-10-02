@@ -21,3 +21,20 @@ How It Works:
 3. The backend loads the pre-trained logistic regression model and processes the input data.
 4. The model returns a prediction (either "Heart Disease Detected" or "No Heart Disease").
 5. The result is displayed to the user in real-time on the web page.
+
+Dataset:
+The dataset used in this project contains the following features-
+1. Age: Age of the patient
+2. Sex: Gender (1 = Male, 0 = Female)
+3. Chest Pain Type (cp): 0 to 3
+4. Resting Blood Pressure (trestbps): mmHg
+5. Serum Cholesterol (chol): mg/dl
+5. Fasting Blood Sugar (fbs): 1 if >120 mg/dl, 0 otherwise
+6. Resting ECG (restecg): 0, 1, or 2
+7. Max Heart Rate (thalach): Maximum heart rate achieved
+8. Exercise-induced Angina (exang): 1 = Yes, 0 = No
+9. ST Depression (oldpeak): Relative to rest
+10. Slope: Slope of peak exercise ST segment
+11. Number of Major Vessels (ca): 0 to 3
+12. Thalassemia (thal): 1 = Normal, 2 = Fixed Defect, 3 = Reversible Defect
+13. Target: 1 indicates presence of heart disease, 0 indicates absence
